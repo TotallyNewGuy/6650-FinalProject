@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.dao.mapper.BalanceMapper">
+    <select id="checkBalance" resultType="double">
+        SELECT BALANCE FROM userBalance
+        WHERE ID = #{id}
+    </select>
+
+    <select id="subtractBalance">
+        UPDATE userBalance
+        SET BALANCE = BALANCE - #{num}
+        WHERE ID = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.dao.mapper.StockMapper">
+    <select id="checkStock" resultType="Integer">
+        SELECT STOCK FROM bookStock
+        WHERE ID = #{id}
+    </select>
+
+    <select id="subtractStock">
+        UPDATE bookStock
+        SET STOCK = STOCK - #{num}
+        WHERE ID = #{id}
+    </select>
+
+    <select id="setSubtractTime">
+        UPDATE bookStock
+        SET SUBTRACT_TIME = #{time}
+        WHERE ID = #{id}
+    </select>
+
+    <select id="findBookById" resultType="com.project.dao.pojo.BookStock">
+        SELECT * FROM bookStock
+        WHERE ID = #{id}
+    </select>
+</mapper>

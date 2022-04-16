@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.dao.mapper.OrderMapper">
+    <select id="getAllOrder" resultType="com.project.dao.pojo.OrderItem">
+        SELECT * FROM orderDetail
+    </select>
+
+    <select id="getOrderByName" resultType="com.project.dao.pojo.OrderItem">
+        SELECT * FROM orderDetail
+        WHERE NAME = #{username}
+    </select>
+
+    <select id="addOrder">
+        INSERT INTO orderDetail
+            (`NAME`, `ADDRESS`, `PURCHASE`, `COUNT`, `TIME`)
+            VALUES (#{name}, #{address}, #{purchase}, #{count}, #{time});
+    </select>
+</mapper>

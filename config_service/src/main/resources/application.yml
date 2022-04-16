@@ -1,0 +1,26 @@
+server:
+  #  port: ${PORT:6700}
+  port: 6400
+
+spring:
+  application:
+    name: config-service
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/TotallyNewGuy/6650demo_config.git
+          default-label: main
+    bus:
+      refresh:
+        enabled: true
+  kafka:
+    bootstrap-servers:
+      - 127.0.0.1:9092
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: busrefresh

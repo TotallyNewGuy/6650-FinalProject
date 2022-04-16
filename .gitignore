@@ -1,0 +1,7 @@
+# Project exclude paths
+/api_service/target/
+/book_service/target/
+/config_service/target/
+/order_service/target/
+/purchase_service/target/
+/user_service/target/

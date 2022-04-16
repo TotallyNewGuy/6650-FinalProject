@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+           http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 指定当前服务的名字（同样的服务名字相同，不要和别的服务同名） -->
+    <dubbo:application name="order-service"/>
+
+    <!-- 指定注册中心的位置 -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+    <!-- 指定通信规则（通信协议和通信端口） -->
+    <dubbo:protocol name="dubbo" port="20882"/>
+
+    <!-- 暴露服务 -->
+    <dubbo:service interface="com.project.api.OrderService" ref="orderService" version="1.0.0"/>
+
+    <!-- 将服务的实现交给spring容器管理 -->
+    <bean id="orderService" class="com.project.service.impl.OrderServiceImpl"/>
+
+    <dubbo:reference interface="com.project.api.BookService" id="bookService"/>
+    <dubbo:reference interface="com.project.api.UserService" id="userService"/>
+
+    <!-- 指定监控中心，registry意为通过注册中心自动寻找监控中心 -->
+<!--    <dubbo:monitor protocol="registry"/>-->
+</beans>

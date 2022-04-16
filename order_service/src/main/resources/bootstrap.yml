@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+      # config service uri
+      uri: http://127.0.0.1:6400
+      name: order
+      profile: dev
+      label: main
+
+  kafka:
+    bootstrap-servers:
+      - 127.0.0.1:9092
