@@ -16,6 +16,6 @@ public class ExceptionAdvice implements ErrorController {
 
     @ExceptionHandler({Exception.class})
     public void handleException(Exception e, HttpServletRequest request, HttpServletResponse response) throws IOException {
-       response.sendRedirect(request.getContextPath() + ERROR_PATH);
+        response.sendRedirect(request.getContextPath() + ERROR_PATH);
     }
 }

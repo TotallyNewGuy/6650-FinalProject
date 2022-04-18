@@ -5,6 +5,7 @@ import com.project.dao.mapper.StockMapper;
 import com.project.util.NTPTime;
 import com.project.vo.Result;
 import com.project.vo.ResultStock;
+import io.seata.core.context.RootContext;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,7 +19,7 @@ public class StockServiceImpl implements StockService {
     public ResultStock subtractById(Long id, Integer num) {
         Integer allStock = stockMapper.checkStock(id);
         if (allStock < num) {
-            throw new IllegalArgumentException("Stock is less than item numbers");
+            throw new IllegalArgumentException("Stock is less than the number of items");
         }
 
         String subtractTime = NTPTime.getNTPTime();

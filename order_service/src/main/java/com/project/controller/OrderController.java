@@ -31,4 +31,9 @@ public class OrderController {
 
         return orderService.addOrder(userId, bookId, count);
     }
+
+    @GetMapping("/delete")
+    public Result addOrder(@RequestParam("orderId") Long orderId) {
+        return orderService.deleteOrder(orderId);
+    }
 }

@@ -34,9 +34,6 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Result getAllOrder() {
         List<OrderItem> res = orderMapper.getAllOrder();
-        for(OrderItem orderItem : res) {
-            System.out.println(orderItem);
-        }
         return Result.success(res);
     }
 
@@ -50,27 +47,40 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Result addOrder(Long userId, Long bookId, Integer count) {
-        // name and address can be got by user_service
-        Result userRes = userService.getUserById(userId);
-        User user = (User)userRes.getData();
+        try {
+            // name and address can be got by user_service
+            Result userRes = userService.getUserById(userId);
+            User user = (User)userRes.getData();
 
-        String userName = user.getNAME();
-        String address = user.getADDRESS();
+            String userName = user.getNAME();
+            String address = user.getADDRESS();
 
-        // balance can be got by balance_service
-        ResultBook bookRes = bookService.getBookById(bookId);
-        BookInfo bookInfo = bookRes.getData();
-        String bookName = bookInfo.getNAME();
+            // balance can be got by balance_service
+            ResultBook bookRes = bookService.getBookById(bookId);
+            BookInfo bookInfo = bookRes.getData();
+            String bookName = bookInfo.getNAME();
 
-        // NTP time from NIST time service
-        String orderTime = NTPTime.getNTPTime();
+            // NTP time from NIST time service
+            String orderTime = NTPTime.getNTPTime();
 
-//        long time = System.currentTimeMillis();
-//        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-//        Date date = new Date(time);
-//        String orderTime = formatter.format(date);
+//            long time = System.currentTimeMillis();
+//            SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+//            Date date = new Date(time);
+//            String orderTime = formatter.format(date);
 
-        orderMapper.addOrder(userName, address, bookName, count, orderTime);
+            orderMapper.addOrder(userName, address, bookName, count, orderTime);
+
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Creating Order is fail");
+        }
         return Result.success("add order is successful");
     }
+
+    @Override
+    public Result deleteOrder(Long orderId) {
+        orderMapper.deleteOrderById(orderId);
+        return Result.success("Delete order is successful");
+    }
+
+
 }

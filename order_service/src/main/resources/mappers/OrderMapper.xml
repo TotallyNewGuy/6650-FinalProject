@@ -17,4 +17,9 @@
             (`NAME`, `ADDRESS`, `PURCHASE`, `COUNT`, `TIME`)
             VALUES (#{name}, #{address}, #{purchase}, #{count}, #{time});
     </select>
+
+    <select id="deleteOrderById">
+        DELETE FROM orderDetail
+        WHERE ID = #{orderId}
+    </select>
 </mapper>

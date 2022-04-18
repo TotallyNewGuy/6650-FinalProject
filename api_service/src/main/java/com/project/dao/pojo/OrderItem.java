@@ -10,6 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderItem implements Serializable {
+    private String ID;
     private String NAME;
     private String ADDRESS;
     private String PURCHASE;

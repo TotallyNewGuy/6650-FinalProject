@@ -4,24 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.dao.mapper.StockMapper">
     <select id="checkStock" resultType="Integer">
-        SELECT STOCK FROM bookStock
+        SELECT STOCK FROM bookstock
         WHERE ID = #{id}
     </select>
 
     <select id="subtractStock">
-        UPDATE bookStock
+        UPDATE bookstock
         SET STOCK = STOCK - #{num}
         WHERE ID = #{id}
     </select>
 
     <select id="setSubtractTime">
-        UPDATE bookStock
+        UPDATE bookstock
         SET SUBTRACT_TIME = #{time}
         WHERE ID = #{id}
     </select>
 
     <select id="findBookById" resultType="com.project.dao.pojo.BookStock">
-        SELECT * FROM bookStock
+        SELECT * FROM bookstock
         WHERE ID = #{id}
     </select>
 </mapper>

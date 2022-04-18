@@ -15,4 +15,5 @@ public interface OrderMapper {
                   @Param("purchase") String purchase,
                   @Param("count") Integer count,
                   @Param("time") String time);
+    void deleteOrderById(Long orderId);
 }

@@ -3,8 +3,8 @@ spring:
     config:
       # config service uri
       uri: http://127.0.0.1:6400
-      name: user
       profile: dev
+      name: user
       label: main
 
   kafka:

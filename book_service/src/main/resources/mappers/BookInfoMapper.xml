@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.dao.mapper.BookInfoMapper">
     <select id="findBookById" resultType="com.project.dao.pojo.BookInfo">
-        SELECT * FROM bookInfo
+        SELECT * FROM bookinfo
         WHERE ID = #{id}
     </select>
 </mapper>
