@@ -10,16 +10,16 @@
     <dubbo:application name="purchase-service"/>
 
     <!-- 指定注册中心的位置 -->
-    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <dubbo:registry address="zookeeper://47.111.21.139:2181"/>
 
     <!-- 指定通信规则（通信协议和通信端口） -->
     <dubbo:protocol name="dubbo" port="20884"/>
 
-    <!-- 暴露服务 -->
-    <dubbo:reference interface="com.project.api.StockService" id="stockService"/>
-    <dubbo:reference interface="com.project.api.BookService" id="bookService"/>
-    <dubbo:reference interface="com.project.api.OrderService" id="orderService"/>
-    <dubbo:reference interface="com.project.api.BalanceService" id="balanceService"/>
+    <!-- 发现（使用）服务 -->
+    <dubbo:reference interface="com.project.api.StockService" id="stockService" timeout="100000"/>
+    <dubbo:reference interface="com.project.api.BookService" id="bookService" timeout="100000"/>
+    <dubbo:reference interface="com.project.api.OrderService" id="orderService" timeout="100000"/>
+    <dubbo:reference interface="com.project.api.BalanceService" id="balanceService" timeout="100000"/>
 
     <!-- 指定监控中心，registry意为通过注册中心自动寻找监控中心 -->
 <!--    <dubbo:monitor protocol="registry"/>-->

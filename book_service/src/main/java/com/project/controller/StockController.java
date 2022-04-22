@@ -23,6 +23,7 @@ public class StockController {
     // http://localhost:6600/stock/subtract?id=1&num=5
     @GetMapping ("/subtract")
     public ResultStock subtractStock(@RequestParam("id") Long id, @RequestParam("num") Integer num) {
+        System.out.println("subtract控制层");
         return stockService.subtractById(id, num);
     }
 }

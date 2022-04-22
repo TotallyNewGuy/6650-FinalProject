@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 
 @EnableDubbo
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com")
 @MapperScan(basePackages = "com.project.dao.mapper")
 @ImportResource("classpath:provider.xml")
 public class BookApp {

@@ -15,7 +15,10 @@ public class TestController {
     
     @GetMapping("/")
     public String index(){
-        return "version = " + commonConfig.getVersion();
+        String port = commonConfig.getPort();
+        String version = commonConfig.getVersion();
+
+        return "port: " + port + "\n"  + "version: " + version;
     }
 
 }

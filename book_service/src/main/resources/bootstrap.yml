@@ -9,4 +9,4 @@ spring:
 
   kafka:
     bootstrap-servers:
-      - 127.0.0.1:9092
+      - 47.111.21.139:9092

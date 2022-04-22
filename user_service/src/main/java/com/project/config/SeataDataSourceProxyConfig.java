@@ -16,7 +16,7 @@ public class SeataDataSourceProxyConfig {
     @Bean
     public DataSource getDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/userDB?useUnicode=true&characterEncoding=UTF-8&serverTimeZone=UTC%2D8");
+        dataSource.setUrl("jdbc:mysql://47.111.21.139:3306/userDB?useUnicode=true&characterEncoding=UTF-8&serverTimeZone=UTC%2D8");
         dataSource.setUsername("root");
         dataSource.setPassword("AppleMan922");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");

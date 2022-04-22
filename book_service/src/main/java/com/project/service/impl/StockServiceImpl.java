@@ -18,14 +18,18 @@ public class StockServiceImpl implements StockService {
     @Override
     public ResultStock subtractById(Long id, Integer num) {
         Integer allStock = stockMapper.checkStock(id);
+        System.out.println("21");
         if (allStock < num) {
             throw new IllegalArgumentException("Stock is less than the number of items");
         }
-
+        System.out.println("25");
         String subtractTime = NTPTime.getNTPTime();
         stockMapper.subtractStock(id, num);
+        System.out.println("28");
         stockMapper.setSubtractTime(id, subtractTime);
+        System.out.println("30");
         Integer newStock = stockMapper.checkStock(id);
+        System.out.println("32");
         return ResultStock.success(newStock);
     }
 
