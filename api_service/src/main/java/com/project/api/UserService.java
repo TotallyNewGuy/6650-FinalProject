@@ -4,4 +4,5 @@ import com.project.vo.Result;
 
 public interface UserService {
     Result getUserById(Long id);
+    String testRoundRobin();
 }

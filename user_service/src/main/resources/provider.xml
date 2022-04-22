@@ -12,11 +12,11 @@
     <!-- 指定注册中心的位置 -->
     <dubbo:registry address="zookeeper://47.111.21.139:2182"/>
 
-    <!-- 指定通信规则（通信协议和通信端口） -->
-    <dubbo:protocol name="dubbo" port="20883"/>
+<!--    &lt;!&ndash; 指定通信规则（通信协议和通信端口） &ndash;&gt;-->
+<!--    <dubbo:protocol name="dubbo" port="20883"/>-->
 
     <!-- 暴露服务 -->
-    <dubbo:service interface="com.project.api.UserService" ref="userService" version="1.0.0" />
+    <dubbo:service interface="com.project.api.UserService" ref="userService" version="1.0.0" loadbalance="roundrobin"/>
 
     <!-- 将服务的实现交给spring容器管理 -->
     <bean id="userService" class="com.project.service.impl.UserServiceImpl"/>

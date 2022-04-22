@@ -11,8 +11,15 @@ public class RefreshConfig {
     @Value("${version}")
     private String version;
 
+    @Value("${server.port}")
+    private String port;
+
     public String getVersion() {
         return version;
+    }
+
+    public String getPort() {
+        return port;
     }
 }
 

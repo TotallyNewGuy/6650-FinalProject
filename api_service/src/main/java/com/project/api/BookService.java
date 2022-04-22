@@ -5,4 +5,5 @@ import com.project.vo.ResultBook;
 
 public interface BookService {
     ResultBook getBookById(Long id);
+    String testRoundRobin();
 }

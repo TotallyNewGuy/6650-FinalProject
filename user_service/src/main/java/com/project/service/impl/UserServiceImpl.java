@@ -1,6 +1,7 @@
 package com.project.service.impl;
 
 import com.project.api.UserService;
+import com.project.config.RefreshConfig;
 import com.project.dao.mapper.UserMapper;
 import com.project.dao.pojo.User;
 import com.project.vo.Result;
@@ -15,11 +16,18 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    RefreshConfig refreshConfig;
+
     public Result getUserById(Long id) {
         User user = userMapper.findUserById(id);
         if (user == null) {
             throw new IllegalArgumentException("user id is invalid");
         }
         return Result.success(user);
+    }
+
+    public String testRoundRobin() {
+        return "Provider port: " + refreshConfig.getPort();
     }
 }
