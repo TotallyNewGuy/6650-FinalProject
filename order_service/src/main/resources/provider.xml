@@ -25,6 +25,8 @@
     <dubbo:reference interface="com.project.api.BookService" id="bookService"/>
     <dubbo:reference interface="com.project.api.UserService" id="userService"/>
 
+    <dubbo:consumer timeout="10000"/>
+
     <!-- 指定监控中心，registry意为通过注册中心自动寻找监控中心 -->
 <!--    <dubbo:monitor protocol="registry"/>-->
 </beans>

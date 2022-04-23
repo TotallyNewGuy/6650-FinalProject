@@ -20,6 +20,7 @@ public class OrderController {
 
     @GetMapping("/{id}")
     public Result checkOrderById(@PathVariable("id") Long id) {
+        System.out.println("checkOrderById activated");
         // userId
         return orderService.getOrderById(id);
     }
