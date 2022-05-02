@@ -19,6 +19,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * This is the implementation of order service, deal with CRUD operations with order.
+ */
 @DubboService
 public class OrderServiceImpl implements OrderService{
 
@@ -31,12 +34,21 @@ public class OrderServiceImpl implements OrderService{
     @Autowired
     UserService userService;
 
+    /***
+     * Get all orders
+     * @return Result, orders.
+     */
     @Override
     public Result getAllOrder() {
         List<OrderItem> res = orderMapper.getAllOrder();
         return Result.success(res);
     }
 
+    /**
+     * Get order by ID
+     * @param id user ID
+     * @return orders
+     */
     @Override
     public Result getOrderById(Long id) {
         User user = (User) userService.getUserById(id).getData();
@@ -45,6 +57,13 @@ public class OrderServiceImpl implements OrderService{
         return Result.success(res);
     }
 
+    /**
+     * created an order
+     * @param userId user id
+     * @param bookId book id
+     * @param count count of book
+     * @return order created if success
+     */
     @Override
     public Result addOrder(Long userId, Long bookId, Integer count) {
         try {
@@ -76,6 +95,11 @@ public class OrderServiceImpl implements OrderService{
         return Result.success("add order is successful");
     }
 
+    /**
+     * order id of the order to be deleted
+     * @param orderId order id
+     * @return result
+     */
     @Override
     public Result deleteOrder(Long orderId) {
         orderMapper.deleteOrderById(orderId);

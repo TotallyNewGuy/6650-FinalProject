@@ -9,6 +9,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/***
+ * This util class is used to get global time from NTP server, servers in this system to achieve the synchronization of system clocks
+ */
+
 public class NTPTime {
 
     private static final String NIST_TIME_URI = "132.163.97.1";

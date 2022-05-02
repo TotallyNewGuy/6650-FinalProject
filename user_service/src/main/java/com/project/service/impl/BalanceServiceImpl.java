@@ -7,12 +7,21 @@ import io.seata.core.context.RootContext;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/***
+ * The implementation of BalanceService, this service deal with the account balance of a user
+ */
 @DubboService
 public class BalanceServiceImpl implements BalanceService {
 
     @Autowired
     private BalanceMapper balanceMapper;
 
+    /***
+     * This method subtract the balance from a user if can, return result
+     * @param id user id
+     * @param num balance to be subtracted
+     * @return result
+     */
     @Override
     public Result subtractById(Long id, Double num) {
         double allBalance = balanceMapper.checkBalance(id);

@@ -9,12 +9,21 @@ import io.seata.core.context.RootContext;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * The implementation of stock service, deal with operations with book stock.
+ */
 @DubboService
 public class StockServiceImpl implements StockService {
 
     @Autowired
     private StockMapper stockMapper;
 
+    /**
+     * subtract the number from a book's stock if stock is sufficient.
+     * @param id book id
+     * @param num number of book to be subtracted
+     * @return result
+     */
     @Override
     public ResultStock subtractById(Long id, Integer num) {
         Integer allStock = stockMapper.checkStock(id);
@@ -29,6 +38,11 @@ public class StockServiceImpl implements StockService {
         return ResultStock.success(newStock);
     }
 
+    /**
+     * Check the book stock by book id
+     * @param id book ID
+     * @return result
+     */
     @Override
     public Result checkById(Long id) {
         Integer stock = stockMapper.checkStock(id);

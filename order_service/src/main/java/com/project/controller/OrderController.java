@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+/***
+ * OrderController, responsible for processing incoming REST API requests,
+ * preparing a model, and returning the view to be rendered as a response.
+ */
 @RestController
 @RequestMapping(value = "/order", method = RequestMethod.GET)
 public class OrderController {

@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * BalanceController, responsible for processing incoming REST API requests,
+ * preparing a model, and returning the view to be rendered as a response.
+ */
 @RestController
 @RequestMapping(value = "/user/balance", method = RequestMethod.GET)
 public class BalanceController {
