@@ -3,8 +3,8 @@ How to run this project.
 We have already deploy out Zookeeper servers, kafka service, dubbo serive, seata serive to server. So to run this project, you can simply run our jar files. 
 0. To run this project, please make sure your java version is 1.08
 1. Go to ../6650-jar, where you can see all jar files from A to E stage. open one terminal to run each jar file. You must run jar files sequentially from A to E. Wait all jar files in one stage (say jar files start with C)fully loaded(the log pause) and open jar files in next stage(say jar files starts with D). Detailed steps are as follows: 
-2. in a terminal, run java -jar A-dubbo.jar . wait until it is fullt loaded(the log at terminal pause)
-3. in a terminal, run java -jar B-config-service.jar . wait until it is fullt loaded(the log at terminal pause)
+2. in a terminal, run ```java -jar A-dubbo.jar ```. wait until it is fullt loaded(the log at terminal pause)
+3. in a terminal, run ```java -jar B-config-service.jar``` . wait until it is fullt loaded(the log at terminal pause)
 4. open 6 terminals, run one of the command in each terminal.
 ```
    java -jar C-book-service1.jar
